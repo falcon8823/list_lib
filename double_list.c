@@ -163,3 +163,24 @@ DL_NODE *dl_sort(DL_TABLE *table, BOOL (*eval)(DL_NODE *n1, DL_NODE *n2)) {
 	return table->top;
 }
 
+/**
+* ノードの探索
+*
+* ノードを探索する。
+* 見つからない場合NULLを返す。
+*
+* @param:table リストテーブル
+* @param:eval  評価関数
+* @param:value 評価関数に渡す評価値へのポインタ
+*
+* @return 一致ノードのDL_NODE*ポインタ
+*/
+DL_NODE *dl_search(DL_TABLE *table, BOOL (*eval)(DL_NODE *node, void *val), void *val) {
+	DL_NODE *current;
+	// 先頭から順に線形探索
+	for(current = table->top; current != NULL; current = current->next) {
+		if((*eval)(current, val)) break;
+	}
+
+	return current;
+}

@@ -29,3 +29,4 @@ void dl_eliminate(DL_TABLE *table, DL_NODE *node);
 DL_NODE *dl_sort(DL_TABLE *table, BOOL (*eval)(DL_NODE *n1, DL_NODE *n2));
 void dl_add(DL_TABLE *table, void *object);
 void dl_node_destroy(DL_NODE *node);
+DL_NODE *dl_search(DL_TABLE *table, BOOL (*eval)(DL_NODE *node, void *val), void *val);
