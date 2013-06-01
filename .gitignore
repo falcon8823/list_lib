@@ -1,0 +1,7 @@
+*~
+*.swp
+*.o
+*.a
+test/list_test
+doc/html
+doc/latex
