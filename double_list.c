@@ -143,6 +143,9 @@ void dl_eliminate(DL_TABLE *table, DL_NODE *node) {
 DL_NODE *dl_sort(DL_TABLE *table, BOOL (*eval)(DL_NODE *n1, DL_NODE *n2)) {
 	DL_NODE *current, *tmp, *tmp_next;
 	
+	// リストが空のときはNULLを返す
+	if(table->top == NULL) return NULL;
+
 	// 2番目の要素から
 	for(current = table->top->next; current != NULL; current = current->next) {
 		// １つ前の要素と比較して、ソートできていない時
